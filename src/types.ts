@@ -1,6 +1,5 @@
 import type { RemoveIndex } from './helpers.js'
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
-import type { fetch } from 'cross-fetch'
 import type { GraphQLError } from 'graphql/error/GraphQLError.js'
 import type { DocumentNode } from 'graphql/language/ast.js'
 
@@ -92,7 +91,7 @@ export interface GraphQLClientResponse<Data> {
 export type HTTPMethodInput = 'GET' | 'POST' | 'get' | 'post'
 
 export interface RequestConfig extends Omit<RequestInit, 'headers' | 'method'>, AdditionalRequestOptions {
-  fetch?: Fetch
+  fetch: Fetch
   method?: HTTPMethodInput
   headers?: MaybeLazy<GraphQLClientRequestHeaders>
   requestMiddleware?: RequestMiddleware
